@@ -5,7 +5,7 @@
 
     <groupId>so.dang.cool</groupId>
     <artifactId>singleton</artifactId>
-    <version>3</version>
+    <version>4-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>singleton</name>
@@ -27,13 +27,6 @@
             <url>https://so.dang.cool</url>
         </developer>
     </developers>
-
-    <scm>
-        <connection>scm:git:git://github.com/hiljusti/singleton.git</connection>
-        <developerConnection>scm:git:git@github.com:hiljusti/singleton.git</developerConnection>
-        <url>https://github.com/hiljusti/singleton/tree/core</url>
-        <tag>v1</tag>
-    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
