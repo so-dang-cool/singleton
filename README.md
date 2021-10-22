@@ -1,4 +1,8 @@
-# 𝕊𝕚𝕟𝕘𝕝𝕖𝕥𝕠𝕟 🔂
+# 🔂 𝕊𝕚𝕟𝕘𝕝𝕖𝕥𝕠𝕟
+
+[![Maven Central](https://img.shields.io/maven-central/v/so.dang.cool/z.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22so.dang.cool%22%20AND%20a:%22singleton%22)
+[![Javadoc](https://javadoc.io/badge2/so.dang.cool/z/javadoc.svg)](https://javadoc.io/doc/so.dang.cool/singleton)
+![License](https://img.shields.io/github/license/hiljusti/singleton)
 
 Dirt-simple singleton implementation.
 
