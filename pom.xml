@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>so.dang.cool</groupId>
@@ -30,8 +29,9 @@
 
   <scm>
     <connection>scm:git:git://github.com/hiljusti/singleton.git</connection>
-    <developerConnection>scm:git:git://github.com/hiljusti/singleton.git</developerConnection>
+    <developerConnection>scm:git:ssh://github.com/hiljusti/singleton.git</developerConnection>
     <url>https://github.com/hiljusti/singleton/tree/core</url>
+    <tag>singleton-1.0.0</tag>
   </scm>
 
   <properties>
