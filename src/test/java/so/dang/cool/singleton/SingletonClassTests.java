@@ -79,8 +79,8 @@ public class SingletonClassTests {
 
         Supplier<String> slowNameSupplier = () -> {
             try {
-                long tenSeconds = 10 * 1000;
-                Thread.sleep(tenSeconds);
+                long twoSeconds = 2 * 1000;
+                Thread.sleep(twoSeconds);
             } catch (InterruptedException e) {
                 // Hijinks occurred, but not important to the test.
                 e.printStackTrace();
@@ -94,14 +94,14 @@ public class SingletonClassTests {
         // A "warm-up" get.
         Instant beforeSlowGet = Instant.now();
         assertEquals(name, jackie.getName());
-        assertSlowerThan(Duration.ofSeconds(10), beforeSlowGet, Instant.now());
+        assertSlowerThan(Duration.ofSeconds(2), beforeSlowGet, Instant.now());
 
         // "Warmed-up" gets
         Instant beforeFastGet = Instant.now();
         assertEquals(name, jackie.getName());
         assertEquals(number, jackie.getNumber());
         assertTrue(jackie.isCool());
-        assertFasterThan(Duration.ofSeconds(1), beforeFastGet, Instant.now());
+        assertFasterThan(Duration.ofMillis(50), beforeFastGet, Instant.now());
     }
 
     private void assertSlowerThan(Duration expected, Instant start, Instant end) {
