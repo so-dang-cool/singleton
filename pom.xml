@@ -124,6 +124,7 @@
                         <configuration>
                             <keyname>${gpg.keyname}</keyname>
                             <passphrase>${gpg.passphrase}</passphrase>
+                            <secretKeyring>${gpg.secretKeyring}</secretKeyring>
                         </configuration>
                     </execution>
                 </executions>

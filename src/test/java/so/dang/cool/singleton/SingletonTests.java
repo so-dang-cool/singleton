@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Supplier;
 
@@ -18,6 +19,23 @@ public class SingletonTests {
 
         assertEquals(instance, eager.get());
         assertIdentical(instance, eager.get());
+    }
+
+    @Test
+    void eagerGetsSupplied() {
+        String first = "bros";
+        String second = "yoshis";
+        LinkedList<String> list = new LinkedList<>();
+        list.push(first);
+        list.push(second);
+
+        Singleton<String> eager = Singleton.eager(list::pop);
+
+        assertEquals(1, list.size(), "(Already popped) List retains one element.");
+        assertEquals(second, eager.get(), "It pops one off the list.");
+        assertEquals(1, list.size(), "Not popped again.");
+        assertEquals(second, eager.get(), "It only pops once.");
+        assertEquals(1, list.size(), "Not popped again.");
     }
 
     @Test

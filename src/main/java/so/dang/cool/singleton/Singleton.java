@@ -3,54 +3,77 @@ package so.dang.cool.singleton;
 import java.util.function.Supplier;
 
 /**
- * A Singleton is a class that holds a single reference throughout its
- * lifetime.
- *
- * It can be thought of as a single value cache. Singletons are best suited to
- * holding references to instances that take some time or effort to compute,
- * but can be reused indefinitely once they have been calculated.
- *
+ * A single, unchanging reference.
+ * <p>
+ * A {@code Singleton} can be thought of as a single value cache. Singletons
+ * are best suited to holding references to instances that take some time or
+ * effort to compute, but can be reused indefinitely once they have been
+ * calculated.
+ * <p>
  * Here we provide an eager implementation that takes an instance, and a lazy
- * implementation that takes a Supplier. A rule of thumb is to use the eager
- * implementation if you will always need the value, or if you do not want to
- * defer it to the first call. Use the lazy implementation if you may not need
- * to calculate the value at all, or when it's appropriate to defer. 
+ * implementation that takes a {@link Supplier}. A rule of thumb is to use
+ * {@code Singleton.eager(...)} if you will always need the value, or if you
+ * don't want to defer to the first call. Use the {@code Singleton.lazy(...)}
+ * implementation if you may not need to calculate the value at all, or when
+ * you want to defer to the first call.
+ *
+ * @since 1
  */
 public abstract class Singleton<E> {
 
     // Private constructor here prevents subclassing outside this context.
     private Singleton() { }
 
+    /**
+     * Get the singleton instance.
+     *
+     * @since 1
+     */
     public abstract E get();
 
     /**
-     * Produce an eager Singleton.
+     * Produce an eager {@link Singleton}.
+     * <p>
+     * The exact instance passed will always be returned by {@link #get()}.
      *
-     * The exact instance passed will always be returned by get().
+     * @since 1
      */
     public static <E> Singleton<E> eager(E instance) {
         return new Eager<>(instance);
     }
 
     /**
-     * Produce a lazy Singleton. 
+     * Produce an eager {@link Singleton}.
+     * <p>
+     * The supplier will be immediately invoked once, and the first result
+     * always returned by {@link #get()}.
      *
-     * The first time get() is invoked, the supplier will be called
-     * exactly once for an instance. All subsequent calls to get()
+     * @since 2
+     */
+    public static <E> Singleton<E> eager(Supplier<E> supplier) {
+        return new Eager<>(supplier.get());
+    }
+
+    /**
+     * Produce a lazy {@link Singleton}.
+     * <p>
+     * The first time {@link #get()} is invoked, the supplier will be called
+     * exactly once for an instance. All subsequent calls to  {@link #get()}
      * will return that initial instance.
+     *
+     * @since 1
      */
     public static <E> Singleton<E> lazy(Supplier<E> supplier) {
         return new Lazy<>(supplier);
     }
 
-
     /**
-     * An eager Singleton.
-     *
-     * The exact instance passed to Singleton.eager(instance) will always be
-     * returned by get().
+     * An eager {@link Singleton}.
+     * <p>
+     * The exact instance passed to {@code Singleton.eager(...)} will always be
+     * returned by {@link #get()}.
      */
-    public static final class Eager<E> extends Singleton<E> {
+    static final class Eager<E> extends Singleton<E> {
         private E instance;
 
         private Eager(E instance) {
@@ -63,26 +86,27 @@ public abstract class Singleton<E> {
     }
 
     /**
-     * A lazy Singleton. 
-     *
-     * The first time get() is invoked, the supplier passed to
-     * Singleton.lazy(supplier) will be called exactly once for an instance.
-     * All subsequent calls to get() will return that initial instance.
+     * A lazy {@link Singleton}.
+     * <p>
+     * The first time its {@link #get()} is invoked, the {@link Supplier}
+     * passed to {@code Singleton.lazy(...)} will be called exactly once for an
+     * instance. All subsequent calls to {@link #get()} will return that initial
+     * instance.
      */
-    public static final class Lazy<E> extends Singleton<E> {
+    static final class Lazy<E> extends Singleton<E> {
         private Supplier<E> supplier;
-        private boolean isSupplied;
+        private boolean unresolved;
         private E instance;
 
         Lazy(Supplier<E> supplier) {
             this.supplier = supplier;
-            this.isSupplied = false;
+            this.unresolved = true;
         }
 
         public E get() {
-            if (!this.isSupplied) {
+            if (this.unresolved) {
                 this.instance = this.supplier.get();
-                this.isSupplied = true;
+                this.unresolved = false;
             }
             return this.instance;
         }
