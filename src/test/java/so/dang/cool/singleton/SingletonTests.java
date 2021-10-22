@@ -2,6 +2,8 @@ package so.dang.cool.singleton;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.LinkedList;
@@ -57,6 +59,24 @@ public class SingletonTests {
         assertEquals(instance, lazy.get());
         assertNotIdentical(instance, lazy.get());
         assertIdentical(lazy.get(), lazy.get());
+    }
+
+    @Test
+    void allowedNullCases() {
+        String nullInstance = null;
+        Supplier<String> nonNullSupplierOfNull = () -> null;
+
+        assertNull(Singleton.eager(nullInstance).get());
+        assertNull(Singleton.eager(nonNullSupplierOfNull).get());
+        assertNull(Singleton.lazy(nonNullSupplierOfNull).get());
+    }
+
+    @Test
+    void disallowedNullCases() {
+        Supplier<String> nullSupplier = null;
+
+        assertThrows(NullPointerException.class, () -> Singleton.eager(nullSupplier));
+        assertThrows(NullPointerException.class, () -> Singleton.lazy(nullSupplier));
     }
 
     private <E> void assertIdentical(E expected, E actual) {

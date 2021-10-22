@@ -1,5 +1,6 @@
 package so.dang.cool.singleton;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 /**
@@ -34,7 +35,8 @@ public abstract class Singleton<E> {
     /**
      * Produce an eager {@link Singleton}.
      * <p>
-     * The exact instance passed will always be returned by {@link #get()}.
+     * The exact instance passed (or null) will be returned by every subsequent
+     * call to {@link #get()}.
      *
      * @since 1
      */
@@ -46,11 +48,12 @@ public abstract class Singleton<E> {
      * Produce an eager {@link Singleton}.
      * <p>
      * The supplier will be immediately invoked once, and the first result
-     * always returned by {@link #get()}.
+     * (even if it was null) is always returned by {@link #get()}.
      *
      * @since 2
      */
     public static <E> Singleton<E> eager(Supplier<E> supplier) {
+        Objects.requireNonNull(supplier, () -> "Supplier must be non-null.");
         return new Eager<>(supplier.get());
     }
 
@@ -59,11 +62,12 @@ public abstract class Singleton<E> {
      * <p>
      * The first time {@link #get()} is invoked, the supplier will be called
      * exactly once for an instance. All subsequent calls to  {@link #get()}
-     * will return that initial instance.
+     * will return that initial result (even if it was null).
      *
      * @since 1
      */
     public static <E> Singleton<E> lazy(Supplier<E> supplier) {
+        Objects.requireNonNull(supplier, () -> "Supplier must be non-null.");
         return new Lazy<>(supplier);
     }
 
