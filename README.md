@@ -1,6 +1,10 @@
-# singleton
+# 🔂 `Singleton` 🔂
 
 Dirt simple singleton implementations.
+
+tl;dr: `Singleton.eager(instance)` or `Singleton.lazy(() -> instance)`
+
+## Singletons made trivial:
 
 ```java
 class FrozenInteger {
@@ -16,5 +20,11 @@ class FrozenInteger {
 }
 ```
 
-A WIP by J.R. Hill
+"Self" Singletons should still prefer composition over inheritance. (TODO: Add an example here)
+
+## Credits
+
+Available under an MIT license.
+
+A side quest of J.R. Hill | https://so.dang.cool | https://github.com/hiljusti
 
