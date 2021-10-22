@@ -29,7 +29,7 @@
 
   <scm>
     <connection>scm:git:git://github.com/hiljusti/singleton.git</connection>
-    <developerConnection>scm:git:ssh://github.com/hiljusti/singleton.git</developerConnection>
+    <developerConnection>scm:git:git@github.com:hiljusti/singleton.git</developerConnection>
     <url>https://github.com/hiljusti/singleton/tree/core</url>
     <tag>singleton-1.0.0</tag>
   </scm>
