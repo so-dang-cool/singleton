@@ -4,7 +4,7 @@
 [![Javadoc](https://javadoc.io/badge2/so.dang.cool/z/javadoc.svg)](https://javadoc.io/doc/so.dang.cool/singleton)
 ![License](https://img.shields.io/github/license/hiljusti/singleton)
 
-Dirt-simple singleton implementation.
+Dirt-simple Java implementation of the classic singleton.
 
 tl;dr: `Singleton.eager(instance)` or `Singleton.lazy(() -> instance)`
 
