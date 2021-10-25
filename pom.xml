@@ -114,11 +114,12 @@
                         <goals>
                             <goal>sign</goal>
                         </goals>
-                        <configuration>
+                        <!-- TODO: Is this needed? -->
+                        <!-- <configuration>
                             <keyname>${gpg.keyname}</keyname>
                             <passphrase>${gpg.passphrase}</passphrase>
                             <secretKeyring>${gpg.secretKeyring}</secretKeyring>
-                        </configuration>
+                        </configuration> -->
                     </execution>
                 </executions>
             </plugin>
