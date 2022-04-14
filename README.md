@@ -1,7 +1,7 @@
 # 🔂 𝕊𝕚𝕟𝕘𝕝𝕖𝕥𝕠𝕟
 
-[![Maven Central](https://img.shields.io/maven-central/v/so.dang.cool/z.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22so.dang.cool%22%20AND%20a:%22singleton%22)
-[![Javadoc](https://javadoc.io/badge2/so.dang.cool/z/javadoc.svg)](https://javadoc.io/doc/so.dang.cool/singleton)
+[![Maven Central](https://img.shields.io/maven-central/v/so.dang.cool/singleton.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22so.dang.cool%22%20AND%20a:%22singleton%22)
+[![Javadoc](https://javadoc.io/badge2/so.dang.cool/singleton/javadoc.svg)](https://javadoc.io/doc/so.dang.cool/singleton)
 ![License](https://img.shields.io/github/license/hiljusti/singleton)
 
 Dirt-simple Java implementation of the classic singleton.
@@ -73,6 +73,13 @@ If you have a primitive or immutable class and need a singleton, use a
 If you need more performance or less overhead, look into rolling your own
 implementation that works for your needs. (But wow, what would you even be
 doing where you'd need to create so many Singleton instances so fast?)
+
+## Misc
+
+- `Singleton.eager(A)` Allows A to be null. (But don't do this)
+- `Singleton.lazy(Supplier<A>)` Allows the supplied A to be null. (But don't do this)
+  Does throws a `NullPointerException` if the supplier itself is null.
+- Versions of the Singleton project will only ever be single major version numbers.
 
 ## Credits
 
