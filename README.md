@@ -26,6 +26,9 @@ class FrozenInteger {
 }
 ```
 
+_(Of course... this is a too-trivial example. For primitives and immutable objects,
+just use a `public static final` constant.)_
+
 ## Self-contained Singletons
 
 `Singleton` is intentionally not inheritable or subclassable in Java. "Self"
@@ -54,6 +57,22 @@ class BigImportantThing {
     // All the methods you want...
 }
 ```
+
+## When to choose Singleton
+
+There are many ways to implement singletons. (Effective Java has a couple
+strategies, your DI framework has one, other JVM languages have options,
+Google around for many more.)
+
+This lib is good for a general-purpose Singleton implementation that can be
+used in many contexts.
+
+If you have a primitive or immutable class and need a singleton, use a
+`public static final` value. I give you permission.
+
+If you need more performance or less overhead, look into rolling your own
+implementation that works for your needs. (But wow, what would you even be
+doing where you'd need to create so many Singleton instances so fast?)
 
 ## Credits
 
