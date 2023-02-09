@@ -63,6 +63,9 @@ public abstract class Singleton<E> implements Supplier<E> {
      * The first time {@link #get()} is invoked, the supplier will be called
      * exactly once for an instance. All subsequent calls to  {@link #get()}
      * will return that initial result (even if it was null).
+     * <p>
+     * The implementation is thread-safe, the supplier that feeds this
+     * Singleton's instance will only be called exactly once.
      *
      * @since 1
      */
@@ -96,6 +99,9 @@ public abstract class Singleton<E> implements Supplier<E> {
      * passed to {@code Singleton.lazy(...)} will be called exactly once for an
      * instance. All subsequent calls to {@link #get()} will return that initial
      * instance.
+     * <p>
+     * The implementation is thread-safe, the supplier that feeds this
+     * Singleton's instance will only be called exactly once.
      */
     static final class Lazy<E> extends Singleton<E> {
         private Supplier<E> supplier;
@@ -109,8 +115,12 @@ public abstract class Singleton<E> implements Supplier<E> {
 
         public E get() {
             if (this.unresolved) {
-                this.instance = this.supplier.get();
-                this.unresolved = false;
+                synchronized(this) {
+                    if (this.unresolved) {
+                        this.instance = this.supplier.get();
+                        this.unresolved = false;
+                    }
+                }
             }
             return this.instance;
         }
