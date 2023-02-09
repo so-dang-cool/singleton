@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Supplier;
@@ -52,9 +53,9 @@ public class SingletonTests {
 
     @Test
     void lazyGetsDynamic() {
-        List<String> instance = List.of("waluigi");
+        List<String> instance = Arrays.asList("waluigi");
 
-        Singleton<List<String>> lazy = Singleton.lazy(() -> List.of("waluigi"));
+        Singleton<List<String>> lazy = Singleton.lazy(() -> Arrays.asList("waluigi"));
 
         assertEquals(instance, lazy.get());
         assertNotIdentical(instance, lazy.get());
