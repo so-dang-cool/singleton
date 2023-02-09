@@ -5,7 +5,7 @@
 
     <groupId>so.dang.cool</groupId>
     <artifactId>singleton</artifactId>
-    <version>4</version>
+    <version>5-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>singleton</name>
