@@ -28,6 +28,12 @@
         </developer>
     </developers>
 
+    <scm>
+        <connection>scm:git:git://github.com/hiljusti/singleton.git</connection>
+        <developerConnection>scm:git:ssh://github.com:hiljusti/singleton.git</developerConnection>
+        <url>http://github.com/hiljusti/singleton/tree/core</url>
+    </scm>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -114,12 +120,6 @@
                         <goals>
                             <goal>sign</goal>
                         </goals>
-                        <!-- TODO: Is this needed? -->
-                        <!-- <configuration>
-                            <keyname>${gpg.keyname}</keyname>
-                            <passphrase>${gpg.passphrase}</passphrase>
-                            <secretKeyring>${gpg.secretKeyring}</secretKeyring>
-                        </configuration> -->
                     </execution>
                 </executions>
             </plugin>
