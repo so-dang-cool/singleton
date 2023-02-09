@@ -20,7 +20,7 @@ import java.util.function.Supplier;
  *
  * @since 1
  */
-public abstract class Singleton<E> {
+public abstract class Singleton<E> implements Supplier<E> {
 
     // Private constructor here prevents subclassing outside this context.
     private Singleton() { }
