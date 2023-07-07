@@ -2,7 +2,7 @@
 
 [![Maven Central](https://img.shields.io/maven-central/v/so.dang.cool/singleton.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22so.dang.cool%22%20AND%20a:%22singleton%22)
 [![Javadoc](https://javadoc.io/badge2/so.dang.cool/singleton/javadoc.svg)](https://javadoc.io/doc/so.dang.cool/singleton)
-![License](https://img.shields.io/github/license/hiljusti/singleton)
+![License](https://img.shields.io/github/license/booniepepper/singleton)
 
 Dirt-simple Java implementation of the classic singleton.
 
@@ -85,4 +85,4 @@ doing where you'd need to create so many Singleton instances so fast?)
 
 Available under an MIT license.
 
-A side quest of J.R. Hill | https://so.dang.cool | https://github.com/hiljusti
+A side quest of J.R. Hill | https://so.dang.cool | https://github.com/booniepepper

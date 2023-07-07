@@ -10,28 +10,28 @@
 
     <name>singleton</name>
     <description>A simple singleton interface.</description>
-    <url>https://github.com/hiljusti/singleton</url>
+    <url>https://github.com/booniepepper/singleton</url>
 
     <licenses>
         <license>
             <name>MIT License</name>
-            <url>https://github.com/hiljusti/singleton/blob/HEAD/LICENSE</url>
-            <distribution>https://github.com/hiljusti/singleton</distribution>
+            <url>https://github.com/booniepepper/singleton/blob/HEAD/LICENSE</url>
+            <distribution>https://github.com/booniepepper/singleton</distribution>
         </license>
     </licenses>
 
     <developers>
         <developer>
             <name>J.R. Hill</name>
-            <email>hiljusti@so.dang.cool</email>
+            <email>justin@so.dang.cool</email>
             <url>https://so.dang.cool</url>
         </developer>
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/hiljusti/singleton.git</connection>
-        <developerConnection>scm:git:ssh://github.com:hiljusti/singleton.git</developerConnection>
-        <url>http://github.com/hiljusti/singleton/tree/core</url>
+        <connection>scm:git:git://github.com/booniepepper/singleton.git</connection>
+        <developerConnection>scm:git:ssh://github.com:booniepepper/singleton.git</developerConnection>
+        <url>http://github.com/booniepepper/singleton/tree/core</url>
     </scm>
 
     <properties>
